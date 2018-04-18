@@ -1,4 +1,4 @@
-public class Melding {
+public class Melding implements Comparable{
     private String innhold;
     private int sekvensnummer, kanalID;
 
@@ -18,5 +18,16 @@ public class Melding {
 
     public int getKanalID() {
         return kanalID;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        //TODO Implementer god sortering her.
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return innhold;
     }
 }
