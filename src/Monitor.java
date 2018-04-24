@@ -1,15 +1,28 @@
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Monitor {
-    ArrayList<Melding> meldinger = new ArrayList <>();
+    private ArrayList<Melding> meldinger = new ArrayList <>();
+    private ReentrantLock laas = new ReentrantLock();
 
     public void leggTilMelding(Melding melding){
-        meldinger.add(melding);
+        laas.lock();
+        try {
+            meldinger.add(melding);
+        }finally {
+            laas.unlock();
+        }
     }
 
     public Melding hentUtMelding(){
-        Melding melding = meldinger.get(0);
-        meldinger.remove(0);
+        laas.lock();
+        Melding melding;
+        try {
+            melding = meldinger.get(0);
+            meldinger.remove(0);
+        }finally {
+            laas.unlock();
+        }
         return melding;
     }
 }
