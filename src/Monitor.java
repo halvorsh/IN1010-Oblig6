@@ -14,12 +14,20 @@ public class Monitor {
         }
     }
 
+    public int hentAntallMeldinger(){
+        return meldinger.size();
+    }
+
     public Melding hentUtMelding(){
         laas.lock();
         Melding melding;
         try {
-            melding = meldinger.get(0);
-            meldinger.remove(0);
+            if(meldinger.size()>0) {
+                melding = meldinger.get(0);
+                meldinger.remove(0);
+            }else{
+                melding = null;
+            }
         }finally {
             laas.unlock();
         }

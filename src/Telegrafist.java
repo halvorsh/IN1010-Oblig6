@@ -15,13 +15,18 @@ public class Telegrafist extends Thread{
 
     @Override
     public void run() {
-        while(true) {
+        while(!interrupted()) {
             String tekst = kanal.lytt();
 
-            System.out.println(tekst);
+            if(tekst == null){
+                interrupt();
+            }else {
+                System.out.println(tekst);
 
-            Melding melding = new Melding(tekst, sekvensnummer, kanal.hentId());
-            sekvensnummer++;
+                Melding melding = new Melding(tekst, sekvensnummer, kanal.hentId());
+                kryptertMonitor.leggTilMelding(melding);
+                sekvensnummer++;
+            }
         }
 
     }
