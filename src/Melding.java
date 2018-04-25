@@ -20,6 +20,10 @@ public class Melding implements Comparable{
         return kanalID;
     }
 
+    public void setInnhold(String innhold) {
+        this.innhold = innhold;
+    }
+
     @Override
     public int compareTo(Object o) {
         //TODO Implementer god sortering her.
