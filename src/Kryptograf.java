@@ -1,5 +1,6 @@
 public class Kryptograf extends Thread{
     private Monitor kryptertMonitor, dekryptertMonitor;
+    private boolean ferdig = false;
 
     public Kryptograf(Monitor kryptertMonitor, Monitor dekryptertMonitor){
         this.kryptertMonitor = kryptertMonitor;
@@ -21,5 +22,10 @@ public class Kryptograf extends Thread{
                 System.out.println(innhold);
             }
         }
+        ferdig = true;
+    }
+
+    public boolean isFerdig() {
+        return ferdig;
     }
 }

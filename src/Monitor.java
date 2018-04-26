@@ -18,6 +18,10 @@ public class Monitor {
         return meldinger.size();
     }
 
+    public ArrayList<Melding> hentMeldinger(){
+        return meldinger;
+    }
+
     public Melding hentUtMelding(){
         laas.lock();
         Melding melding;

@@ -23,5 +23,19 @@ public class Hovedprogram {
             kryptografer[i] = kryptograf;
             kryptograf.start();
         }
+
+        boolean ferdig = false;
+        while(!ferdig){
+            ferdig = true;
+            for(Kryptograf kryptograf : kryptografer){
+                if(!kryptograf.isFerdig()){
+                    ferdig = false;
+                }
+            }
+        }
+
+        Operasjonsleder operasjonsleder = new Operasjonsleder(dekrypteringsMonitor.hentMeldinger());
+
+        System.out.println("Er ferdig");
     }
 }
