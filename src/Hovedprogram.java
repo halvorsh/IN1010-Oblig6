@@ -35,7 +35,5 @@ public class Hovedprogram {
         }
 
         Operasjonsleder operasjonsleder = new Operasjonsleder(dekrypteringsMonitor.hentMeldinger());
-
-        System.out.println("Er ferdig");
     }
 }

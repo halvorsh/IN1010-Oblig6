@@ -32,7 +32,7 @@ public class Operasjonsleder {
                     e.printStackTrace();
                 }
             }
-            printWriter.write(meldinger[i].getInnhold()+"\n");
+            printWriter.write(meldinger[i].getInnhold()+"\n\n");
         }
         printWriter.close();
     }
